@@ -8,7 +8,11 @@ This script includes:
 - File handling
 - Data analysis with pandas
 - Visualization with matplotlib
+- List sorting and searching
+- Simple encryption utilities
+- Class-based utilities
 
+Author: OpenAI Demo
 """
 
 import math
@@ -19,6 +23,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import matplotlib.pyplot as plt
 import datetime
+import hashlib
 
 # ---------------------- TEXT UTILITIES ----------------------
 " +
@@ -96,6 +101,42 @@ def is_palindrome(s):
     return [item for sublist in nested for item in sublist]" for i in range(50)]) +
         "
 
+# ---------------------- ENCRYPTION UTILS ----------------------
+def sha256_hash(text):
+    return hashlib.sha256(text.encode()).hexdigest()
+
+def md5_hash(text):
+    return hashlib.md5(text.encode()).hexdigest()
+
+# ---------------------- SORTING & SEARCH ----------------------
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n - i - 1):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+    return arr
+
+def binary_search(arr, target):
+    low, high = 0, len(arr) - 1
+    while low <= high:
+        mid = (low + high) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return -1
+
+# ---------------------- DEMO CLASS ----------------------
+class Greeter:
+    def __init__(self, name):
+        self.name = name
+
+    def greet(self):
+        return f"Hello, {self.name}! Welcome to PyTitan."
+
 # ---------------------- MAIN FUNCTION ----------------------
 def main():
     print("Fetching Hacker News Titles:")
@@ -123,12 +164,25 @@ def main():
     print(f"Vowels: {count_vowels(sample)}")
     print(f"Consonants: {count_consonants(sample)}")
 
-    print("\nDate Examples:")
-    print("Current datetime (example):", get_current_datetime_0())
+    print("\nDate Example:")
+    print("Current datetime:", get_current_datetime_0())
 
-    print("\nList Utilities:")
-    nested = [[1,2], [3,4], [5]]
-    print("Flattened:", flatten_nested_list_0(nested))
+    print("\nList Flatten Example:")
+    print(flatten_nested_list_0([[1, 2], [3, 4], [5]]))
+
+    print("\nEncryption Example:")
+    print("SHA256 of 'hello':", sha256_hash('hello'))
+    print("MD5 of 'hello':", md5_hash('hello'))
+
+    print("\nSorting and Searching:")
+    data = [5, 3, 8, 6, 2]
+    sorted_data = bubble_sort(data)
+    print("Sorted:", sorted_data)
+    print("Search for 6 in sorted list:", binary_search(sorted_data, 6))
+
+    print("\nGreeter Class Demo:")
+    g = Greeter("Developer")
+    print(g.greet())
 
 if __name__ == "__main__":
     main()
