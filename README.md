@@ -29,4 +29,5 @@ Easily expandable and modular
 🚀 How to Run
 
 pip install requests beautifulsoup4 pandas matplotlib
+
 python long_script.py
