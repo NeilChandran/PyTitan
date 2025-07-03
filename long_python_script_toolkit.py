@@ -12,7 +12,6 @@ This script includes:
 - Simple encryption utilities
 - Class-based utilities
 
-Author: OpenAI Demo
 """
 
 import math
