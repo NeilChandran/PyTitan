@@ -1,4 +1,3 @@
-# PyTitan
 🐍 PyTitan
 PyTitan is a monolithic Python toolkit packed with over 1000 lines of utility functions and scripts. It combines powerful features for:
 
