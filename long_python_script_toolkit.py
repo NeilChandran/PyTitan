@@ -9,7 +9,6 @@ This script includes:
 - Data analysis with pandas
 - Visualization with matplotlib
 
-Author: OpenAI Demo
 """
 
 import math
